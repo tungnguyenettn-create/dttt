@@ -1,0 +1,43 @@
+=== BJT: Vbe(on) va hFE (Vce theo bang du lieu) ===
+linh kien dieu kien                  T  Vbe(V)     hFE   datasheet
+BC547     Ic=2mA Vce=5V             20   0.669     309   Vbe 0.58-0.70 (typ 0.66), hFE 110-800
+BC557     Ic=2mA Vce=5V             20   0.666     320   Vbe 0.55-0.70 (typ 0.62), hFE 180-460 (B), typ 290
+BD139     Ic=150mA Vce=2V           20   0.737     135   hFE 40-250 (BD139-10: 63-160; -16: 100-250)
+BD140     Ic=150mA Vce=2V           20   0.738     133   hFE 40-250
+BD139     Ic=500mA Vce=2V           20   0.794     107   Vbe(on) <= 1 V, hFE >= 25
+BD140     Ic=500mA Vce=2V           20   0.796     102   Vbe(on) <= 1 V, hFE >= 25
+BD139     Ic=5mA Vce=2V             20   0.640     151   hFE >= 25
+BC547     Ic=2mA Vce=5V             25   0.660     309   Vbe 0.58-0.70 (typ 0.66), hFE 110-800
+BC557     Ic=2mA Vce=5V             25   0.657     320   Vbe 0.55-0.70 (typ 0.62), hFE 180-460 (B), typ 290
+BD139     Ic=150mA Vce=2V           25   0.729     135   hFE 40-250 (BD139-10: 63-160; -16: 100-250)
+BD140     Ic=150mA Vce=2V           25   0.730     134   hFE 40-250
+BD139     Ic=500mA Vce=2V           25   0.787     108   Vbe(on) <= 1 V, hFE >= 25
+BD140     Ic=500mA Vce=2V           25   0.788     103   Vbe(on) <= 1 V, hFE >= 25
+BD139     Ic=5mA Vce=2V             25   0.630     151   hFE >= 25
+BC547     Ic=2mA Vce=5V             30   0.652     309   Vbe 0.58-0.70 (typ 0.66), hFE 110-800
+BC557     Ic=2mA Vce=5V             30   0.648     320   Vbe 0.55-0.70 (typ 0.62), hFE 180-460 (B), typ 290
+BD139     Ic=150mA Vce=2V           30   0.722     135   hFE 40-250 (BD139-10: 63-160; -16: 100-250)
+BD140     Ic=150mA Vce=2V           30   0.722     134   hFE 40-250
+BD139     Ic=500mA Vce=2V           30   0.780     107   Vbe(on) <= 1 V, hFE >= 25
+BD140     Ic=500mA Vce=2V           30   0.781     103   Vbe(on) <= 1 V, hFE >= 25
+BD139     Ic=5mA Vce=2V             30   0.621     151   hFE >= 25
+
+=== JFET 2N5457 (Vds = 15 V) ===
+T=20: IDSS=2.261 mA (1-5, typ 3)  gm0=3.301 mS (1-5, typ 3)  yos=5.0 uS (typ 10, max 50)  VGS(off)@10nA=-1.37 V (-0.5..-6)  VGS@100uA=-1.08 V (typ -2.5 ? ghi chu: sheet in 'iD=100 mAdc' = 100 uA)
+T=25: IDSS=2.206 mA (1-5, typ 3)  gm0=3.220 mS (1-5, typ 3)  yos=4.9 uS (typ 10, max 50)  VGS(off)@10nA=-1.37 V (-0.5..-6)  VGS@100uA=-1.08 V (typ -2.5 ? ghi chu: sheet in 'iD=100 mAdc' = 100 uA)
+T=30: IDSS=2.152 mA (1-5, typ 3)  gm0=3.141 mS (1-5, typ 3)  yos=4.8 uS (typ 10, max 50)  VGS(off)@10nA=-1.37 V (-0.5..-6)  VGS@100uA=-1.08 V (typ -2.5 ? ghi chu: sheet in 'iD=100 mAdc' = 100 uA)
+
+=== Dien dung (tinh tu tham so .model, VT=0) ===
+  BC547: Cob(Vcb=10V) = CJC/(1+10/VJC)^MJC = 1.66 pF   (datasheet typ 3.5, max 6)
+  BC557: Cob(Vcb=10V) = 2.49 pF   (datasheet typ 3.0, max 6)
+  fT BC547 @10mA,5V ~ 1/(2pi(TF+(CJE+CJC)/gm)) = 363 MHz (datasheet typ 300)
+  fT BC557 @10mA,5V = 291 MHz (datasheet typ 320)
+
+=== Anh huong do phan tan JFET 2N5457 (trong khoang bang du lieu) len mach (27 C) ===
+  Bang du lieu: IDSS 1-5 mA, gm0 1-5 mS, VGS(off) -0.5..-6 V. Chon 5 "con" hop le (Beta = IDSS/Vto^2):
+    IDSS   Vto    gm0 |  Id(mA)  Vs(V)  Vgs(V)   Vout     Av   THD%
+    1.00 -1.00   2.00 |   1.777  3.910   0.590  4.951  10.88   3.72
+    2.12 -1.37   3.09 |   2.057  4.525  -0.025  4.951  12.13   0.63
+    3.00 -2.00   3.00 |   2.182  4.800  -0.300  4.951  11.44   0.61
+    5.00 -2.00   5.00 |   2.335  5.137  -0.637  4.951  12.55   0.59
+    3.00 -3.00   2.00 |   2.236  4.920  -0.420  4.951   9.78   0.59

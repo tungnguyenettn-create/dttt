@@ -1,0 +1,90 @@
+T = 27.0 C   Vt = 25.865 mV
+
+===== DC (tinh tay) =====
+  Id     = 0.0020567
+  Vgs    = -0.026798
+  Vs     = 4.5247
+  Ic2    = 0.0030042
+  Vbe2   = 0.66808
+  Ve2    = 0.30805
+  Vb2    = 0.97623
+  Vout   = 4.9488
+  Vcv    = 3.5831
+  Va     = 6.3194
+  Vab    = 2.7363
+  Vbe_m  = 0.66152
+  Icqm   = 0.0023289
+  Ie     = 0.053411
+  Ic3a   = 0.0018113
+  Vbe3a  = 0.65492
+  Vbe3   = 0.6879
+  Veb4   = 0.68706
+  Veb4a  = 0.65086
+  Icc    = 0.059939
+
+===== gm, rpi (tinh tay) =====
+  gm J1 = 3.058 mS
+  Q2 : Ic=  3.0042 mA  gm=  113.709 mS  rpi=  2638.32 ohm  ro=  34.38 k
+  Qm : Ic=  2.3289 mA  gm=   88.566 mS  rpi=  3387.30 ohm  ro=  44.10 k
+  Q3a: Ic=  1.8113 mA  gm=   69.135 mS  rpi=  4339.36 ohm  ro=  56.70 k
+  Q4a: Ic=  1.8095 mA  gm=   68.717 mS  rpi=  4365.74 ohm  ro=  30.01 k
+  Q3 : Ic= 53.0577 mA  gm= 1964.480 mS  rpi=    76.36 ohm  ro=   1.96 k
+  Q4 : Ic= 53.0577 mA  gm= 1947.983 mS  rpi=    77.00 ohm  ro=   1.23 k
+
+===== Tin hieu nho 1 kHz: nut-giai MNA tu tham so tinh tay =====
+  Av = 12.150  (pha 178.1 do)   Zin = 5.072 Mohm
+  Zout = 0.3282 ohm
+  |vs/vin|=0.672  |vb2/vs|=0.0586  |vout/vb2|=308.5
+
+===== Cong thuc gan dung tung tang (tinh tay) =====
+  Rsh     = 1799.6 ohm
+  gm2e    = 0.09062 S
+  R3      = 1.1437 ohm
+  R4      = 1.1488 ohm
+  Rout3   = 0.61439 ohm
+  G       = 0.86546 
+  Zx      = 3712.7 ohm
+  A       = -291.18 
+  T       = 10.519 
+  Zin2    = 1065.9 ohm
+  Rsp     = 718.04 ohm
+  Av1     = 0.68707 
+  div     = 0.98039 
+  Av2     = -18.013 
+  Av      = -12.134 
+  Zin1    = 5e+06 ohm
+  Zo_ol   = 4.622 ohm
+  k       = 0.036125 
+  Gb      = 0.98397 
+  a_      = 1.8199 
+  Zout    = 0.33688 ohm
+  fL_Cin  = 0.31207 Hz
+  fL_C12  = 11.784 Hz
+  fL_Cfb  = 0.01632 Hz
+  fL_Co   = 16.437 Hz
+
+===== SO SANH: tinh tay vs ngspice =====
+  dai luong                          tay     ngspice  sai lech
+  Id J1 (mA)                      2.0567      2.0567    -0.00%
+  Vs (V)                          4.5247      4.5248    -0.00%
+  gm J1 (mS)                      3.0578      3.0578     0.00%
+  Vb2 (V)                        0.97623     0.97687    -0.07%
+  Ve2 (V)                        0.30805     0.30849    -0.14%
+  Ic Q2 (mA)                      3.0042      3.0086    -0.15%
+  gm Q2 (mS)                      113.71      113.95    -0.21%
+  Vcv (V)                         3.5831      3.5848    -0.05%
+  Va (V)                          6.3194      6.3221    -0.04%
+  Vm (V)                          8.0061      8.0071    -0.01%
+  Vmb (V)                         4.2446      4.2466    -0.05%
+  Ic Qm (mA)                      2.3289      2.3333    -0.19%
+  Ic Q3 (mA)                      53.058      52.305     1.44%
+  gm Q3 (mS)                      1964.5      1943.1     1.10%
+  Ic Q3a (mA)                     1.8113      1.8152    -0.22%
+  Vout DC (V)                     4.9488       4.951    -0.05%
+  Icc (mA)                        59.939      59.186     1.27%
+  Av 1kHz (MNA)                    12.15      12.126     0.20%
+  Av 1kHz (cong thuc)             12.134      12.126     0.06%
+  Zin (Mohm) (MNA)                5.0724      4.9844     1.77%
+  Zin (Mohm) (cong thuc)               5      4.9844     0.31%
+  Zout (ohm) (MNA)               0.32818     0.33194    -1.13%
+  Zout (ohm) (cong thuc)         0.33688     0.33194     1.49%

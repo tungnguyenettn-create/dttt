@@ -1,0 +1,17 @@
+* Kiem tra chéo ngspice cho phan tich tay: op, gm, .tf, AC
+.include core.inc
+.control
+set noaskquit
+set wr_vecnames
+op
+print v(g) v(s) v(b2) v(e2) v(cv) v(a) v(m) v(mb) v(out) v(e3a) v(e3) v(e4a) v(e4)
+print @j1[id] @j1[gm] @j1[gds] @q2[ic] @q2[ib] @q2[gm] @q2[gpi] @q2[go] @q2[vbe]
+print @qm[ic] @qm[gm] @qm[vbe] @q3[ic] @q3[gm] @q3[gpi] @q3[vbe] @q4[ic] @q4[gm] @q4[gpi] @q4[vbe]
+print @q3a[ic] @q3a[gm] @q3a[gpi] @q3a[vbe] @q4a[ic] @q4a[gm] @q4a[gpi] @q4a[vbe]
+print i(vcc)
+tf v(outl) vin
+print all
+ac lin 1 1k 1k
+print vm(outl)/vm(in) vm(s)/vm(in) vm(b2)/vm(s) vm(out)/vm(b2) vm(cv)/vm(b2)
+.endc
+.end
