@@ -53,7 +53,7 @@ Cổng JFET đặt cố định 4,5 V, nguồn ra qua Rs = 2,2 kΩ nên Id ≈ I
 | 5,0 | −2,0 | 5,0 | 2,34 | −0,64 | 12,6 | 0,59 |
 | 3,0 | −3,0 | 2,0 | 2,24 | −0,42 | 9,8 | 0,59 |
 
-→ Con IDSS thấp (~1 mA, vẫn hợp lệ datasheet) làm Vgs > 0 (mối nối cổng gần dẫn ~0,6 V), THD tăng ~6×. Av chỉ lệch 10–12,6 nhờ hồi tiếp. Gợi ý: giảm Rs (≈1 kΩ) hoặc đặt Vg thấp hơn để Vgs < 0 cho mọi con.
+→ Con IDSS thấp (~1 mA, vẫn hợp lệ datasheet) làm Vgs > 0 (mối nối cổng gần dẫn ~0,6 V), THD tăng ~6×. Av chỉ lệch 10–12,6 nhờ hồi tiếp. Đã thử tự bias cổng 0 V (Rg1 bỏ, Rs = 1k/1,5k/2,2k): Vgs luôn âm nhưng **kém hơn** – Av chỉ 7,0–9,9 (<10), THD 1,1–3,7 %, Id trải 0,24–1,15 mA. Bias gốc (Vg = 4,5 V, Vgs≈0) giữ Id ≈ Vg/Rs ≈ 2 mA khá ổn định giữa các con (1,78–2,34 mA), chỉ hỏng với con IDSS ≈ 1 mA. Hướng chưa thử: hạ Vg còn ≈ 2–3 V (Rg1 lớn hơn Rg2).
 
 ## 5. Nhiệt độ 20–30 °C
 a) Mọi linh kiện cùng nhiệt độ (ngspice `.temp`):
